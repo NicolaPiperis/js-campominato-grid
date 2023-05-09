@@ -3,34 +3,31 @@
     // DICHIARAZIONI VARIABILI GLOBALI
     let container = document.getElementById("container");
     console.log(container);
-
-    
-
-    // CREO UN ARRAY DOVE INCLUDERO' I NUMERI IN MANIERA CASUALE
-    let arrayNumber = numberGenerator(1, 100);
-    console.log(arrayNumber);
    
-
-
     // SELEZIONIAMO DA JS IL BOTTONE PLAY
     let play = document.getElementById("play");
     console.log(play);
 
-    // AGGIUNGO AL CLICK DELLA VARIABILE PRECEDENTEMENTE SELEZIONATA UNA SERIE DI COMPORTAMENTI comportamenti 
+    // AGGIUNGO AL CLICK DELLA VARIABILE PRECEDENTEMENTE SELEZIONATA UNA SERIE DI COMPORTAMENTI 
     play.addEventListener("click",
         function(){
 
             // GENERAZIONE CELLE / ATTRAVERSO UN CICLO PER RIPETERE LA CREAZIONE DELLE CELLE QUANTE VOLTE BASTA
-            for (let i = 0; i < 100 ; i++) {
+            for (let i = 1; i < 101 ; i++) {
 
+                // Ci saranno quindi 10 caselle per ognuna delle 10 righe.
                 let squareElement = createElement("div", "square") ;
                 container.append(squareElement);
 
-                squareElement.append(arrayNumber);
+                // Ogni cella ha un numero progressivo, da 1 a 100.
+                squareElement.append(i);
+
                 // FUNZIONE DI BACKGROUND COLOR AL CLICK DELLE CELLE
                 squareElement.addEventListener("click",
                     function(){
+                        // Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata
                         squareElement.classList.add("cell_clicked")
+                        console.log(i);
                     }
                 )
             }
@@ -43,13 +40,13 @@
 
 
 
-// Ogni cella ha un numero progressivo, da 1 a 100.
 
 
-// Ci saranno quindi 10 caselle per ognuna delle 10 righe.
 
 
-// Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata
+
+
+
 
 
 
@@ -66,6 +63,17 @@ function createElement (tag, addClass){
 
 }
 
+
+
+
+
+
+
+
+
+
+
+// FUNZIONI CHE NON SERVONO :)
 // CREO NUMERI DA 1 A 100
 function numberGenerator (min, max) {
     let intArray = [];
@@ -75,9 +83,6 @@ function numberGenerator (min, max) {
     return intArray;
 
 }
-
-
-
 
 // CREO NUMERI RANDOM
 function createNumberRandom (numMin, numMax){
