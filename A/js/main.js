@@ -4,9 +4,12 @@
     let container = document.getElementById("container");
     console.log(container);
 
+    
+
     // CREO UN ARRAY DOVE INCLUDERO' I NUMERI IN MANIERA CASUALE
-    let arrayNumber = createRandomPosition(1,100);
+    let arrayNumber = numberGenerator(1, 100);
     console.log(arrayNumber);
+   
 
 
     // SELEZIONIAMO DA JS IL BOTTONE PLAY
@@ -24,7 +27,6 @@
                 container.append(squareElement);
 
                 squareElement.append(arrayNumber);
-
                 // FUNZIONE DI BACKGROUND COLOR AL CLICK DELLE CELLE
                 squareElement.addEventListener("click",
                     function(){
@@ -33,7 +35,7 @@
                 )
             }
 
-
+            
         }
     )
 
@@ -64,6 +66,19 @@ function createElement (tag, addClass){
 
 }
 
+// CREO NUMERI DA 1 A 100
+function numberGenerator (min, max) {
+    let intArray = [];
+    for (i = 0 ; i < max ;i++) {
+        intArray.push(i);
+    }
+    return intArray;
+
+}
+
+
+
+
 // CREO NUMERI RANDOM
 function createNumberRandom (numMin, numMax){
 
@@ -75,6 +90,7 @@ function createNumberRandom (numMin, numMax){
 
 function createRandomPosition (min, max) {
 
+    // CREO UN ARRAY INTERNO CHE SARA' IL RISULTATO DELLA FUNZIONE
     let intArray = [];
     
     // CREIAMO UN CICLO PER GENERARE I NUMERI TANTE VOLTE QUANTO L'ARGOMENTO "MAX"
